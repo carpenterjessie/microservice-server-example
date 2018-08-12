@@ -23,8 +23,22 @@ repositories {
 	mavenCentral()
 }
 
-
+ext {
+	queryDslVersion = "4.2.1"
+}
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter')
+	compile group:'org.springframework.cloud', name:'spring-cloud-starter-netflix-eureka-client', version:'2.0.1.RELEASE'
+	compile group:'org.springframework.boot', name:'spring-boot-starter-parent', version:'2.0.4.RELEASE'
+	compile group:'org.springframework.boot', name:'spring-boot-starter-web', version:'2.0.4.RELEASE'
+	compile("com.google.guava:guava")
+	compile("ma.glasnost.orika:orika-core:1.5.2")
+	compile("org.projectlombok:lombok")
+	compile("com.querydsl:querydsl-core:${queryDslVersion}")
+	compile("com.querydsl:querydsl-jpa:${queryDslVersion}")
+	compileOnly("com.querydsl:querydsl-apt:${queryDslVersion}:jpa")
+	compile("org.springframework.boot:spring-boot-starter-data-jpa")
+	compile("org.postgresql:postgresql:42.1.4")
+
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
